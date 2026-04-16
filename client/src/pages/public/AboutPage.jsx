@@ -18,29 +18,61 @@ const AboutPage = () => {
     {
       label: "LinkedIn",
       url: links.linkedin,
-      icon: "https://cdn.simpleicons.org/linkedin/0A66C2"
+      icons: [
+        "https://cdn.simpleicons.org/linkedin/0A66C2",
+        "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/linkedin.svg"
+      ]
     },
     {
       label: "GitHub",
       url: links.github,
-      icon: "https://cdn.simpleicons.org/github/111111"
+      icons: [
+        "https://cdn.simpleicons.org/github/111111",
+        "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg"
+      ]
     },
     {
       label: "HackerRank",
       url: links.hackerrank,
-      icon: "https://cdn.simpleicons.org/hackerrank/00EA64"
+      icons: [
+        "https://cdn.simpleicons.org/hackerrank/00EA64",
+        "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/hackerrank.svg"
+      ]
     },
     {
       label: "LeetCode",
       url: links.leetcode,
-      icon: "https://cdn.simpleicons.org/leetcode/F89F1B"
+      icons: [
+        "https://cdn.simpleicons.org/leetcode/F89F1B",
+        "https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/leetcode.svg"
+      ]
     },
     {
       label: "Resume",
       url: resumeUrl,
-      icon: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/file-earmark-pdf.svg"
+      icons: ["https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/file-earmark-pdf.svg"]
     }
   ];
+
+  const handleIconError = (e, label) => {
+    const img = e.currentTarget;
+    const sources = (img.dataset.sources || "").split("|").filter(Boolean);
+    const nextIndex = Number(img.dataset.fallbackIndex || "0") + 1;
+
+    if (nextIndex < sources.length) {
+      img.dataset.fallbackIndex = String(nextIndex);
+      img.src = sources[nextIndex];
+      return;
+    }
+
+    img.style.display = "none";
+    const holder = img.parentElement;
+    if (!holder || holder.querySelector(".profile-icon-fallback")) return;
+    const fallback = document.createElement("span");
+    fallback.className = "profile-icon-fallback";
+    fallback.textContent = label.slice(0, 2).toUpperCase();
+    holder.appendChild(fallback);
+  };
 
   useEffect(() => {
     api.get("/profile").then((res) => setProfile(res.data)).catch(() => { });
@@ -126,7 +158,14 @@ const AboutPage = () => {
                   aria-label={app.label}
                   title={app.label}
                 >
-                  <img src={app.icon} alt={app.label} loading="lazy" />
+                  <img
+                    src={app.icons[0]}
+                    alt={app.label}
+                    loading="lazy"
+                    data-sources={app.icons.join("|")}
+                    data-fallback-index="0"
+                    onError={(e) => handleIconError(e, app.label)}
+                  />
                 </a>
               ))}
             </div>

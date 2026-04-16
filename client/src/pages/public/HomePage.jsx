@@ -11,19 +11,19 @@ const HomePage = () => {
 
   return (
     <PublicLayout>
-      <section className="home-hero-card">
+      <section className="home-hero-card page-animate-in">
         <div className="home-glow home-glow-left" />
         <div className="home-glow home-glow-center" />
         <div className="home-glow home-glow-right" />
 
         <div className="home-hero-grid">
-          <div className="home-copy">
+          <div className="home-copy home-copy-animate">
             <p className="home-kicker">Hello, I&apos;m</p>
             <h1>{profile?.fullName || "Sonali Motkar"}</h1>
             <p className="home-role">MERN Stack Developer</p>
           </div>
 
-          <div className="home-photo-shell">
+          <div className="home-photo-shell home-photo-animate">
             <img
               className="home-photo"
               src="/certificates/sonal.png"
