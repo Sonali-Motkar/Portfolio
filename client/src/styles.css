@@ -255,6 +255,7 @@ textarea {
   border-radius: 50%;
   border: 3px solid color-mix(in srgb, var(--c5) 70%, var(--c7) 30%);
   box-shadow: 0 14px 24px rgba(0, 29, 57, 0.28);
+  animation: photo-float 4.8s ease-in-out infinite;
 }
 
 .about-photo-name {
@@ -317,6 +318,41 @@ textarea {
   gap: 1rem;
 }
 
+.page-animate-in {
+  animation: page-fade-in 520ms ease-out both;
+}
+
+.animate-rise {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: rise-in 620ms ease-out forwards;
+}
+
+.delay-1 {
+  animation-delay: 90ms;
+}
+
+.delay-2 {
+  animation-delay: 180ms;
+}
+
+.delay-3 {
+  animation-delay: 270ms;
+}
+
+.delay-4 {
+  animation-delay: 360ms;
+}
+
+.stagger-grid .about-panel {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stagger-grid .about-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 22px rgba(0, 29, 57, 0.2);
+}
+
 @media (max-width: 780px) {
   .about-hero {
     grid-template-columns: 1fr;
@@ -366,6 +402,36 @@ textarea {
 
 .result-card:active {
   transform: translateY(-1px) scale(0.995);
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes photo-float {
+  0%,
+  100% {
+    transform: scale(0.95) translateY(0);
+  }
+  50% {
+    transform: scale(0.95) translateY(-6px);
+  }
 }
 
 .book-toggle {

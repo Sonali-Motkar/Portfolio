@@ -62,15 +62,18 @@ const AcademicResultsPage = () => {
 
   return (
     <PublicLayout>
-      <section className="card cert-section">
-        <div className="cert-section-head">
+      <section className="card cert-section page-animate-in">
+        <div className="cert-section-head animate-rise delay-1">
           <h2>Academic Results</h2>
           <p>Educational performance summary and key milestones.</p>
         </div>
 
-        <div className="about-grid" style={{ marginTop: "0.9rem" }}>
-          {academicRows.map((row) => (
-            <article key={row.level} className="about-panel result-card">
+        <div className="about-grid stagger-grid" style={{ marginTop: "0.9rem" }}>
+          {academicRows.map((row, index) => (
+            <article
+              key={row.level}
+              className={`about-panel result-card animate-rise delay-${Math.min(index + 1, 4)}`}
+            >
               <h3>{row.level}</h3>
               <p><strong>Board / University:</strong> {row.boardOrUniversity}</p>
               <p><strong>Year of Passing:</strong> {row.year}</p>
