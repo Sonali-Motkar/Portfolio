@@ -1,6 +1,6 @@
-# Professional Portfolio Management System (MERN)
+# Portfolio (MERN)
 
-A complete MERN stack portfolio management application with:
+A complete MERN stack portfolio with:
 - Public portfolio pages
 - Admin authentication (JWT)
 - CRUD for projects, skills, certificates
