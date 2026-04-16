@@ -21,12 +21,13 @@ const AboutPage = () => {
   const rawAbout = profile?.about?.trim() || "";
   const aboutText =
     !rawAbout || /^write your summary here\.?$/i.test(rawAbout) ? defaultSummary : rawAbout;
+  const resumeUrl = profile?.resumeUrl?.trim() || "/resume.pdf";
 
   return (
     <PublicLayout>
-      <section className="card about-card about-impressive">
+      <section className="card about-card about-impressive page-animate-in">
         <div className="about-hero">
-          <div className="about-head">
+          <div className="about-head animate-rise delay-1">
             <p className="about-kicker">Aspiring Full Stack Developer</p>
             <h2>About Me</h2>
             <p className="about-intro">
@@ -43,7 +44,7 @@ const AboutPage = () => {
             </div>
           </div>
 
-          <div className="about-photo-wrap about-photo-card">
+          <div className="about-photo-wrap about-photo-card animate-rise delay-2">
             <img
               className="about-photo"
               src="/certificates/sonal.png"
@@ -54,8 +55,8 @@ const AboutPage = () => {
           </div>
         </div>
 
-        <div className="about-grid">
-          <article className="about-panel">
+        <div className="about-grid stagger-grid">
+          <article className="about-panel animate-rise delay-1">
             <h3>Professional Summary</h3>
             <p>{aboutText}</p>
             <p>
@@ -65,7 +66,7 @@ const AboutPage = () => {
             </p>
           </article>
 
-          <article className="about-panel">
+          <article className="about-panel animate-rise delay-2">
             <h3>Core Focus Areas</h3>
             <ul className="about-list">
               <li>MERN Stack Application Development</li>
@@ -76,7 +77,7 @@ const AboutPage = () => {
             </ul>
           </article>
 
-          <article className="about-panel">
+          <article className="about-panel animate-rise delay-3">
             <h3>What I Bring</h3>
             <ul className="about-list">
               <li>Clear understanding of end-to-end project flow</li>
@@ -86,13 +87,14 @@ const AboutPage = () => {
             </ul>
           </article>
 
-          <article className="about-panel">
+          <article className="about-panel animate-rise delay-4">
             <h3>Profiles</h3>
             <div className="quick-links">
               <a href={links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
               <a href={links.github} target="_blank" rel="noreferrer">GitHub</a>
               <a href={links.hackerrank} target="_blank" rel="noreferrer">HackerRank</a>
               <a href={links.leetcode} target="_blank" rel="noreferrer">LeetCode</a>
+              <a href={resumeUrl} target="_blank" rel="noreferrer">Resume</a>
             </div>
             <p className="about-contact-note">
               For collaboration and opportunities, please connect through the Contact page.
