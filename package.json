@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-content",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev.cjs",
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run dev",
+    "seed:all": "npm --prefix server run seed:all",
+    "build": "npm --prefix client run build",
+    "preview": "npm --prefix client run preview"
+  }
+}

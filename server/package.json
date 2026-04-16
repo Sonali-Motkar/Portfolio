@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/server.js",
+    "start": "node src/server.js",
+    "seed:certs": "node src/scripts/seedCertificates.js",
+    "seed:skills": "node src/scripts/seedSkills.js",
+    "seed:profile": "node src/scripts/seedProfile.js",
+    "seed:projects": "node src/scripts/addCodtechProject.js && node src/scripts/addGoalCorporationProject.js",
+    "seed:all": "npm run seed:profile && npm run seed:skills && npm run seed:certs && npm run seed:projects"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "express-validator": "^7.3.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.4.1"
+  }
+}
