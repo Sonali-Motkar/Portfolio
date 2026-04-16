@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import PublicLayout from "../../layouts/PublicLayout";
 import { useEffect, useState } from "react";
 import api from "../../api/axios";
@@ -31,11 +30,6 @@ const HomePage = () => {
               alt={`${profile?.fullName || "Sonali Motkar"} profile`}
             />
           </div>
-        </div>
-
-        <div className="home-cta-row">
-          <Link to="/projects" className="btn">View Projects</Link>
-          <Link to="/contact" className="btn secondary">Contact</Link>
         </div>
       </section>
     </PublicLayout>

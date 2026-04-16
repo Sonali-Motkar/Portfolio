@@ -1,11 +1,12 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const PublicLayout = ({ children }) => {
   return (
     <div className="container">
       <header className="header">
-        <Link to="/" className="brand">Portfolio</Link>
+        <span className="brand">Portfolio</span>
         <nav>
+          <NavLink to="/">Home</NavLink>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/skills">Skills</NavLink>
           <NavLink to="/projects">Projects</NavLink>
