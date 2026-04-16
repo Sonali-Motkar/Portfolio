@@ -13,6 +13,34 @@ const AboutPage = () => {
     hackerrank: "https://www.hackerrank.com/profile/sonalimotkar001",
     leetcode: "https://leetcode.com/u/Sonal_motkar/"
   };
+  const resumeUrl = profile?.resumeUrl?.trim() || "/resume.pdf";
+  const profileApps = [
+    {
+      label: "LinkedIn",
+      url: links.linkedin,
+      icon: "https://cdn.simpleicons.org/linkedin/0A66C2"
+    },
+    {
+      label: "GitHub",
+      url: links.github,
+      icon: "https://cdn.simpleicons.org/github/111111"
+    },
+    {
+      label: "HackerRank",
+      url: links.hackerrank,
+      icon: "https://cdn.simpleicons.org/hackerrank/00EA64"
+    },
+    {
+      label: "LeetCode",
+      url: links.leetcode,
+      icon: "https://cdn.simpleicons.org/leetcode/F89F1B"
+    },
+    {
+      label: "Resume",
+      url: resumeUrl,
+      icon: "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/icons/file-earmark-pdf.svg"
+    }
+  ];
 
   useEffect(() => {
     api.get("/profile").then((res) => setProfile(res.data)).catch(() => { });
@@ -21,7 +49,6 @@ const AboutPage = () => {
   const rawAbout = profile?.about?.trim() || "";
   const aboutText =
     !rawAbout || /^write your summary here\.?$/i.test(rawAbout) ? defaultSummary : rawAbout;
-  const resumeUrl = profile?.resumeUrl?.trim() || "/resume.pdf";
 
   return (
     <PublicLayout>
@@ -90,11 +117,18 @@ const AboutPage = () => {
           <article className="about-panel animate-rise delay-4">
             <h3>Profiles</h3>
             <div className="profile-icon-links">
-              <a href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">in</a>
-              <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">GH</a>
-              <a href={links.hackerrank} target="_blank" rel="noreferrer" aria-label="HackerRank" title="HackerRank">HR</a>
-              <a href={links.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode" title="LeetCode">LC</a>
-              <a href={resumeUrl} target="_blank" rel="noreferrer" aria-label="Resume" title="Resume">CV</a>
+              {profileApps.map((app) => (
+                <a
+                  key={app.label}
+                  href={app.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={app.label}
+                  title={app.label}
+                >
+                  <img src={app.icon} alt={app.label} loading="lazy" />
+                </a>
+              ))}
             </div>
             <p className="about-contact-note">
               For collaboration and opportunities, please connect through the Contact page.

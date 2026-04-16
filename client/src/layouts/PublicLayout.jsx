@@ -4,7 +4,9 @@ const PublicLayout = ({ children }) => {
   return (
     <div className="container">
       <header className="header">
-        <span className="brand">Portfolio</span>
+        <NavLink to="/" className="brand">
+          Portfolio
+        </NavLink>
         <nav>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/skills">Skills</NavLink>

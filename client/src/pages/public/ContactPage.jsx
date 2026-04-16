@@ -48,15 +48,20 @@ const ContactPage = () => {
 
   return (
     <PublicLayout>
-      <section className="card contact-section">
+      <section className="card contact-section page-animate-in">
         <div className="cert-section-head contact-head">
           <h2>Contact</h2>
           <p>Open to internships, collaborations, freelance projects, and tech discussions.</p>
+          <div className="contact-head-tags">
+            <span>Internships</span>
+            <span>Collaborations</span>
+            <span>Freelance Projects</span>
+          </div>
         </div>
 
         <div className="contact-layout">
           <aside className="contact-side">
-            <article className="contact-mini-card">
+            <article className="contact-mini-card animate-rise delay-1">
               <h3>Get In Touch</h3>
               <p>Connect with me through these profiles and I will respond quickly.</p>
               <div className="quick-links">
@@ -66,7 +71,7 @@ const ContactPage = () => {
               </div>
             </article>
 
-            <div className="contact-stats">
+            <div className="contact-stats animate-rise delay-2">
               <article className="contact-stat">
                 <p className="contact-stat-label">Location</p>
                 <p className="contact-stat-value">Pune, Maharashtra</p>
@@ -83,7 +88,7 @@ const ContactPage = () => {
 
           </aside>
 
-          <article className="contact-form-card">
+          <article className="contact-form-card animate-rise delay-3">
             <h3>Send a Message</h3>
             <p className="contact-form-subtext">Share your requirements and I will get back with a clear response.</p>
             <form onSubmit={handleSubmit} className="contact-form-grid">
