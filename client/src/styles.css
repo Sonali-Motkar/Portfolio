@@ -1562,7 +1562,7 @@ textarea {
   position: absolute;
   inset: -30%;
   pointer-events: none;
-  opacity: 0.22;
+  opacity: 0.42;
   transition: opacity 0.28s ease, filter 0.28s ease;
   z-index: 0;
 }
@@ -1597,11 +1597,11 @@ textarea {
 }
 
 .project-card .project-fx-a {
-  animation: project-orbit-a 14s linear infinite;
+  animation: project-orbit-a 11s linear infinite;
 }
 
 .project-card .project-fx-b {
-  animation: project-orbit-b 18s linear infinite;
+  animation: project-orbit-b 14s linear infinite;
 }
 
 .project-card::before {
@@ -1618,9 +1618,10 @@ textarea {
     var(--project-bg-image);
   background-size: cover;
   background-position: center;
-  opacity: 0.22;
+  opacity: 0.14;
   pointer-events: none;
   transition: opacity 0.22s ease;
+  z-index: 0;
 }
 
 .project-card::after {
@@ -1629,11 +1630,12 @@ textarea {
   inset: 0;
   background: radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--c6) 36%, transparent 64%), transparent 42%);
   pointer-events: none;
+  z-index: 0;
 }
 
 .project-card > :not(.project-fx) {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .project-card:hover {
@@ -1643,11 +1645,11 @@ textarea {
 }
 
 .project-card:hover::before {
-  opacity: 0.34;
+  opacity: 0.24;
 }
 
 .project-card:hover .project-fx {
-  opacity: 0.8;
+  opacity: 0.88;
   filter: blur(0) drop-shadow(0 0 13px rgba(180, 229, 255, 0.5));
 }
 
@@ -1671,7 +1673,7 @@ textarea {
 
 .project-theme-weather .project-fx-a,
 .project-theme-weather .project-fx-b {
-  opacity: 0.3;
+  opacity: 0.5;
 }
 
 .project-theme-weather .project-fx-a {
@@ -1691,12 +1693,12 @@ textarea {
     radial-gradient(ellipse at 78% 26%, rgba(235, 248, 255, 0.48) 0 20px, transparent 22px);
 }
 
-.project-theme-weather:hover .project-fx-a {
+.project-theme-weather .project-fx-a {
   opacity: 0.58;
   animation: weather-rain 2.2s linear infinite;
 }
 
-.project-theme-weather:hover .project-fx-b {
+.project-theme-weather .project-fx-b {
   opacity: 0.48;
   animation: weather-cloud 4s ease-in-out infinite;
 }
@@ -1717,7 +1719,7 @@ textarea {
 
 .project-theme-trello .project-fx-a,
 .project-theme-trello .project-fx-b {
-  opacity: 0.32;
+  opacity: 0.52;
 }
 
 .project-theme-trello .project-fx-a {
@@ -1743,19 +1745,19 @@ textarea {
     );
 }
 
-.project-theme-trello:hover .project-fx-a {
+.project-theme-trello .project-fx-a {
   opacity: 0.54;
   animation: trello-cards 3.6s linear infinite;
 }
 
-.project-theme-trello:hover .project-fx-b {
+.project-theme-trello .project-fx-b {
   opacity: 0.5;
   animation: trello-columns 4.4s ease-in-out infinite;
 }
 
 .project-theme-finance .project-fx-a,
 .project-theme-finance .project-fx-b {
-  opacity: 0.35;
+  opacity: 0.55;
 }
 
 .project-theme-finance .project-fx-a {

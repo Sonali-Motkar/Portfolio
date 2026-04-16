@@ -15,14 +15,23 @@ const ProjectsPage = () => {
       content.includes("kanban") ||
       content.includes("task manager") ||
       content.includes("task-management") ||
+      content.includes("as it is") ||
+      content.includes("dnd") ||
+      content.includes("drag and drop") ||
       content.includes("dnd-kit")
     ) {
       return "project-theme-trello";
     }
-    if (content.includes("loan") || content.includes("corporation") || content.includes("finance")) {
+    if (
+      content.includes("loan") ||
+      content.includes("corporation") ||
+      content.includes("goal corporation") ||
+      content.includes("finance") ||
+      content.includes("emi")
+    ) {
       return "project-theme-finance";
     }
-    return "";
+    return "project-theme-generic";
   };
 
   useEffect(() => {
