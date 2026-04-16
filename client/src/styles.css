@@ -1562,8 +1562,8 @@ textarea {
   position: absolute;
   inset: -30%;
   pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.28s ease;
+  opacity: 0.22;
+  transition: opacity 0.28s ease, filter 0.28s ease;
   z-index: 0;
 }
 
@@ -1596,6 +1596,14 @@ textarea {
   filter: blur(0.1px) drop-shadow(0 0 9px rgba(161, 219, 255, 0.4));
 }
 
+.project-card .project-fx-a {
+  animation: project-orbit-a 14s linear infinite;
+}
+
+.project-card .project-fx-b {
+  animation: project-orbit-b 18s linear infinite;
+}
+
 .project-card::before {
   content: "";
   position: absolute;
@@ -1623,7 +1631,7 @@ textarea {
   pointer-events: none;
 }
 
-.project-card > * {
+.project-card > :not(.project-fx) {
   position: relative;
   z-index: 1;
 }
@@ -1639,15 +1647,8 @@ textarea {
 }
 
 .project-card:hover .project-fx {
-  opacity: 0.78;
-}
-
-.project-card:hover .project-fx-a {
-  animation: project-orbit-a 8s linear infinite;
-}
-
-.project-card:hover .project-fx-b {
-  animation: project-orbit-b 10s linear infinite;
+  opacity: 0.8;
+  filter: blur(0) drop-shadow(0 0 13px rgba(180, 229, 255, 0.5));
 }
 
 .project-card-head {
@@ -1670,7 +1671,7 @@ textarea {
 
 .project-theme-weather .project-fx-a,
 .project-theme-weather .project-fx-b {
-  opacity: 0.22;
+  opacity: 0.3;
 }
 
 .project-theme-weather .project-fx-a {
@@ -1691,12 +1692,12 @@ textarea {
 }
 
 .project-theme-weather:hover .project-fx-a {
-  opacity: 0.5;
+  opacity: 0.58;
   animation: weather-rain 2.2s linear infinite;
 }
 
 .project-theme-weather:hover .project-fx-b {
-  opacity: 0.4;
+  opacity: 0.48;
   animation: weather-cloud 4s ease-in-out infinite;
 }
 
@@ -1716,7 +1717,7 @@ textarea {
 
 .project-theme-trello .project-fx-a,
 .project-theme-trello .project-fx-b {
-  opacity: 0.26;
+  opacity: 0.32;
 }
 
 .project-theme-trello .project-fx-a {
@@ -1743,13 +1744,41 @@ textarea {
 }
 
 .project-theme-trello:hover .project-fx-a {
-  opacity: 0.48;
+  opacity: 0.54;
   animation: trello-cards 3.6s linear infinite;
 }
 
 .project-theme-trello:hover .project-fx-b {
-  opacity: 0.45;
+  opacity: 0.5;
   animation: trello-columns 4.4s ease-in-out infinite;
+}
+
+.project-theme-finance .project-fx-a,
+.project-theme-finance .project-fx-b {
+  opacity: 0.35;
+}
+
+.project-theme-finance .project-fx-a {
+  background:
+    radial-gradient(circle at 22% 26%, rgba(222, 245, 255, 0.9) 0 5px, transparent 7px),
+    radial-gradient(circle at 74% 32%, rgba(222, 245, 255, 0.8) 0 5px, transparent 7px),
+    repeating-radial-gradient(
+      ellipse at 18% 55%,
+      transparent 0 60px,
+      rgba(210, 241, 255, 0.44) 62px 64px,
+      transparent 66px 126px
+    );
+}
+
+.project-theme-finance .project-fx-b {
+  background:
+    radial-gradient(circle at 82% 80%, rgba(214, 240, 255, 0.75) 0 6px, transparent 8px),
+    repeating-radial-gradient(
+      ellipse at 84% 46%,
+      transparent 0 58px,
+      rgba(190, 234, 255, 0.4) 60px 62px,
+      transparent 64px 122px
+    );
 }
 
 @keyframes project-orbit-a {

@@ -8,9 +8,20 @@ const ProjectsPage = () => {
   const [error, setError] = useState("");
 
   const getProjectThemeClass = (project) => {
-    const content = `${project?.title || ""} ${project?.description || ""}`.toLowerCase();
+    const content = `${project?.title || ""} ${project?.description || ""} ${(project?.techStack || []).join(" ")}`.toLowerCase();
     if (content.includes("weather")) return "project-theme-weather";
-    if (content.includes("trello")) return "project-theme-trello";
+    if (
+      content.includes("trello") ||
+      content.includes("kanban") ||
+      content.includes("task manager") ||
+      content.includes("task-management") ||
+      content.includes("dnd-kit")
+    ) {
+      return "project-theme-trello";
+    }
+    if (content.includes("loan") || content.includes("corporation") || content.includes("finance")) {
+      return "project-theme-finance";
+    }
     return "";
   };
 
