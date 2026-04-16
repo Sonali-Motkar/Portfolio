@@ -91,8 +91,35 @@ Server auto-seeds one admin user on first run using:
 - `PUT /api/profile`
 
 ## Deployment Suggestion
-- Frontend: Vercel
-- Backend: Render
+- Frontend: Render Static Site
+- Backend: Render Web Service
 - Database: MongoDB Atlas
 
 Set env vars on deployment platform exactly as in `.env.example`.
+
+## Live Deployment
+- Frontend: `https://portfolio-web-zco6.onrender.com`
+- Backend: `https://portfolio-lpbd.onrender.com`
+- Health check: `https://portfolio-lpbd.onrender.com/api/health`
+
+## Render Notes
+- Frontend (`Portfolio-web`) uses:
+  - Root Directory: `client`
+  - Build Command: `npm install && npm run build`
+  - Publish Directory: `dist`
+  - Env: `VITE_API_URL=https://portfolio-lpbd.onrender.com/api`
+- Backend (`Portfolio`) uses:
+  - Root Directory: `server`
+  - Build Command: `npm install`
+  - Start Command: `npm start`
+  - Env includes: `MONGO_URI`, `JWT_SECRET`, `CLIENT_URL`, `ADMIN_EMAIL`, `ADMIN_PASSWORD`
+- Static-site routing rewrite required for React Router:
+  - Source: `/*`
+  - Destination: `/index.html`
+  - Action: `Rewrite`
+
+## Security Checklist (Post Deploy)
+- Rotate `MONGO_URI` database password.
+- Rotate `JWT_SECRET`.
+- Update rotated secrets in Render backend environment variables.
+- Redeploy backend service after rotating secrets.
