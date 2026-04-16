@@ -1666,9 +1666,9 @@ textarea {
 
 .project-theme-weather::after {
   background:
-    radial-gradient(circle at 18% 18%, rgba(220, 244, 255, 0.34) 0%, transparent 28%),
-    radial-gradient(circle at 72% 20%, rgba(193, 232, 255, 0.26) 0%, transparent 26%),
-    linear-gradient(180deg, rgba(145, 207, 241, 0.14) 0%, rgba(88, 162, 210, 0.08) 100%);
+    radial-gradient(ellipse at 20% 18%, rgba(236, 249, 255, 0.52) 0 14%, transparent 26%),
+    radial-gradient(ellipse at 74% 20%, rgba(218, 243, 255, 0.42) 0 14%, transparent 26%),
+    linear-gradient(180deg, rgba(145, 207, 241, 0.2) 0%, rgba(88, 162, 210, 0.12) 100%);
 }
 
 .project-theme-weather .project-fx-a,
@@ -1681,38 +1681,39 @@ textarea {
     repeating-linear-gradient(
       110deg,
       rgba(194, 233, 255, 0) 0 14px,
-      rgba(194, 233, 255, 0.28) 15px 17px,
+      rgba(194, 233, 255, 0.52) 15px 17px,
       rgba(194, 233, 255, 0) 18px 28px
     );
+  background-size: 160px 160px;
 }
 
 .project-theme-weather .project-fx-b {
   background:
-    radial-gradient(ellipse at 26% 24%, rgba(235, 248, 255, 0.56) 0 22px, transparent 24px),
-    radial-gradient(ellipse at 58% 20%, rgba(235, 248, 255, 0.42) 0 18px, transparent 20px),
-    radial-gradient(ellipse at 78% 26%, rgba(235, 248, 255, 0.48) 0 20px, transparent 22px);
+    radial-gradient(ellipse at 24% 24%, rgba(235, 248, 255, 0.72) 0 24px, transparent 26px),
+    radial-gradient(ellipse at 56% 20%, rgba(235, 248, 255, 0.58) 0 20px, transparent 22px),
+    radial-gradient(ellipse at 80% 26%, rgba(235, 248, 255, 0.62) 0 22px, transparent 24px);
 }
 
 .project-theme-weather .project-fx-a {
-  opacity: 0.58;
-  animation: weather-rain 2.2s linear infinite;
+  opacity: 0.72;
+  animation: weather-rain 1.8s linear infinite;
 }
 
 .project-theme-weather .project-fx-b {
-  opacity: 0.48;
+  opacity: 0.58;
   animation: weather-cloud 4s ease-in-out infinite;
 }
 
 .project-theme-trello::after {
   background:
-    linear-gradient(180deg, rgba(177, 226, 255, 0.14) 0%, rgba(118, 191, 239, 0.08) 100%),
+    linear-gradient(180deg, rgba(177, 226, 255, 0.24) 0%, rgba(118, 191, 239, 0.12) 100%),
     linear-gradient(
       90deg,
-      rgba(160, 214, 248, 0.2) 0 22%,
+      rgba(160, 214, 248, 0.3) 0 22%,
       transparent 22% 28%,
-      rgba(160, 214, 248, 0.18) 28% 50%,
+      rgba(160, 214, 248, 0.26) 28% 50%,
       transparent 50% 56%,
-      rgba(160, 214, 248, 0.17) 56% 78%,
+      rgba(160, 214, 248, 0.24) 56% 78%,
       transparent 78% 100%
     );
 }
@@ -1725,33 +1726,31 @@ textarea {
 .project-theme-trello .project-fx-a {
   background:
     repeating-linear-gradient(
-      180deg,
-      rgba(206, 236, 255, 0.34) 0 8px,
-      rgba(206, 236, 255, 0) 8px 22px
+      90deg,
+      rgba(206, 236, 255, 0.24) 0 20%,
+      transparent 20% 26%,
+      rgba(206, 236, 255, 0.22) 26% 48%,
+      transparent 48% 54%,
+      rgba(206, 236, 255, 0.2) 54% 76%,
+      transparent 76% 100%
     );
 }
 
 .project-theme-trello .project-fx-b {
   background:
-    linear-gradient(
-      90deg,
-      transparent 0 22%,
-      rgba(206, 236, 255, 0.22) 22% 23%,
-      transparent 23% 50%,
-      rgba(206, 236, 255, 0.22) 50% 51%,
-      transparent 51% 78%,
-      rgba(206, 236, 255, 0.22) 78% 79%,
-      transparent 79% 100%
-    );
+    linear-gradient(rgba(214, 240, 255, 0.46), rgba(214, 240, 255, 0.46)) 8% 18% / 14% 12% no-repeat,
+    linear-gradient(rgba(214, 240, 255, 0.4), rgba(214, 240, 255, 0.4)) 32% 36% / 14% 12% no-repeat,
+    linear-gradient(rgba(214, 240, 255, 0.44), rgba(214, 240, 255, 0.44)) 60% 24% / 14% 12% no-repeat,
+    linear-gradient(rgba(214, 240, 255, 0.38), rgba(214, 240, 255, 0.38)) 82% 44% / 14% 12% no-repeat;
 }
 
 .project-theme-trello .project-fx-a {
-  opacity: 0.54;
+  opacity: 0.62;
   animation: trello-cards 3.6s linear infinite;
 }
 
 .project-theme-trello .project-fx-b {
-  opacity: 0.5;
+  opacity: 0.58;
   animation: trello-columns 4.4s ease-in-out infinite;
 }
 
@@ -1809,10 +1808,10 @@ textarea {
 
 @keyframes weather-rain {
   0% {
-    transform: translateY(-8px) translateX(0);
+    transform: translateY(-18px) translateX(8px);
   }
   100% {
-    transform: translateY(18px) translateX(-6px);
+    transform: translateY(26px) translateX(-14px);
   }
 }
 
@@ -1828,23 +1827,23 @@ textarea {
 
 @keyframes trello-cards {
   0% {
-    transform: translateY(0);
+    transform: translateY(-2px);
   }
   50% {
-    transform: translateY(6px);
+    transform: translateY(8px);
   }
   100% {
-    transform: translateY(0);
+    transform: translateY(-2px);
   }
 }
 
 @keyframes trello-columns {
   0%,
   100% {
-    transform: translateX(0);
+    transform: translateX(0) translateY(0);
   }
   50% {
-    transform: translateX(5px);
+    transform: translateX(8px) translateY(3px);
   }
 }
 
