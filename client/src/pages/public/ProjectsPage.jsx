@@ -7,6 +7,13 @@ const ProjectsPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const getProjectThemeClass = (project) => {
+    const content = `${project?.title || ""} ${project?.description || ""}`.toLowerCase();
+    if (content.includes("weather")) return "project-theme-weather";
+    if (content.includes("trello")) return "project-theme-trello";
+    return "";
+  };
+
   useEffect(() => {
     api
       .get("/projects")
@@ -17,7 +24,7 @@ const ProjectsPage = () => {
 
   return (
     <PublicLayout>
-      <section className="card">
+      <section className="card projects-section">
         <h2>Projects</h2>
         {loading ? <div className="skills-state">Loading projects...</div> : null}
         {error ? <div className="skills-state error">{error}</div> : null}
@@ -27,11 +34,19 @@ const ProjectsPage = () => {
         ) : null}
 
         {projects.map((project) => (
-          <article key={project._id} className="item">
-            <h3>
-              {project.title}
-              {project.featured ? <span className="cert-chip" style={{ marginLeft: "0.5rem" }}>Featured</span> : null}
-            </h3>
+          <article
+            key={project._id}
+            className={`item project-card animate-rise ${getProjectThemeClass(project)}`.trim()}
+            style={{
+              "--project-bg-image": project.imageUrl ? `url("${encodeURI(project.imageUrl)}")` : "none"
+            }}
+          >
+            <span className="project-fx project-fx-a" aria-hidden="true" />
+            <span className="project-fx project-fx-b" aria-hidden="true" />
+            <div className="project-card-head">
+              <h3>{project.title}</h3>
+              {project.featured ? <span className="cert-chip">Featured</span> : null}
+            </div>
             <p className="project-description">{project.description}</p>
             <p><strong>Tech:</strong> {(project.techStack || []).join(", ")}</p>
             {project.keyFeatures?.length ? (
