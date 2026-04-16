@@ -193,13 +193,14 @@ textarea {
 .home-hero-card {
   position: relative;
   overflow: hidden;
-  border-radius: 20px;
-  border: 1px solid rgba(155, 121, 255, 0.35);
+  border-radius: 26px;
+  border: 1px solid rgba(168, 145, 255, 0.36);
   background:
-    radial-gradient(circle at 50% 48%, rgba(123, 82, 255, 0.34) 0%, rgba(123, 82, 255, 0.06) 28%, transparent 56%),
-    linear-gradient(180deg, #030425 0%, #05052e 45%, #030422 100%);
-  box-shadow: 0 24px 45px rgba(5, 6, 37, 0.55), inset 0 0 0 1px rgba(183, 164, 255, 0.1);
-  padding: clamp(1rem, 2.4vw, 2rem);
+    radial-gradient(circle at 58% 48%, rgba(140, 103, 255, 0.34) 0%, rgba(140, 103, 255, 0.06) 34%, transparent 62%),
+    radial-gradient(circle at 12% 10%, rgba(156, 139, 255, 0.2) 0%, transparent 35%),
+    linear-gradient(160deg, #02031f 0%, #050634 52%, #030322 100%);
+  box-shadow: 0 28px 48px rgba(5, 6, 37, 0.56), inset 0 0 0 1px rgba(183, 164, 255, 0.14);
+  padding: clamp(1.1rem, 2.8vw, 2.4rem);
 }
 
 .home-glow {
@@ -239,13 +240,21 @@ textarea {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(280px, 1fr) minmax(220px, 360px);
+  grid-template-columns: minmax(280px, 1fr) minmax(240px, 440px);
   align-items: center;
-  gap: clamp(0.8rem, 2vw, 1.4rem);
-  min-height: clamp(340px, 52vh, 500px);
+  gap: clamp(1rem, 2.8vw, 2rem);
+  min-height: clamp(360px, 56vh, 540px);
 }
 
 .home-copy {
+  max-width: 620px;
+  padding: clamp(1rem, 2vw, 1.4rem);
+  border-radius: 20px;
+  border: 1px solid rgba(196, 177, 255, 0.34);
+  background: linear-gradient(140deg, rgba(205, 223, 255, 0.14) 0%, rgba(177, 161, 255, 0.11) 100%);
+  backdrop-filter: blur(9px) saturate(130%);
+  -webkit-backdrop-filter: blur(9px) saturate(130%);
+  box-shadow: 0 14px 28px rgba(6, 8, 45, 0.34);
   color: #f5f7ff;
 }
 
@@ -259,7 +268,7 @@ textarea {
 
 .home-kicker {
   margin: 0 0 0.4rem;
-  color: #9975ff;
+  color: #af95ff;
   font-weight: 600;
   font-size: clamp(1rem, 1.4vw, 1.3rem);
 }
@@ -275,17 +284,32 @@ textarea {
   position: relative;
   display: grid;
   place-items: center;
+  align-self: end;
+  isolation: isolate;
+}
+
+.home-photo-shell::before {
+  content: "";
+  position: absolute;
+  width: min(420px, 92%);
+  height: min(420px, 92%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(133, 104, 255, 0.5) 0%, rgba(133, 104, 255, 0.12) 45%, transparent 76%);
+  filter: blur(8px);
+  z-index: 0;
 }
 
 .home-photo {
   position: relative;
   z-index: 1;
-  width: min(340px, 100%);
+  width: min(410px, 100%);
   max-width: 100%;
-  object-fit: cover;
-  object-position: center 24%;
-  border-radius: 14px;
-  filter: drop-shadow(0 16px 24px rgba(12, 11, 40, 0.65));
+  object-fit: contain;
+  object-position: center bottom;
+  border-radius: 0;
+  filter: drop-shadow(0 18px 34px rgba(10, 9, 38, 0.8));
+  -webkit-mask-image: radial-gradient(ellipse 64% 76% at 50% 42%, #000 62%, rgba(0, 0, 0, 0.88) 70%, transparent 92%);
+  mask-image: radial-gradient(ellipse 64% 76% at 50% 42%, #000 62%, rgba(0, 0, 0, 0.88) 70%, transparent 92%);
 }
 
 .centered {
@@ -1060,11 +1084,31 @@ textarea {
   .home-hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 0.8rem;
+    gap: 1.05rem;
+    min-height: auto;
   }
 
   .home-photo {
-    width: min(280px, 78vw);
+    width: min(350px, 88vw);
+  }
+
+  .home-copy {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-hero-card {
+    border-radius: 18px;
+    padding: 0.95rem;
+  }
+
+  .home-copy {
+    padding: 0.85rem;
+  }
+
+  .home-copy h1 {
+    font-size: clamp(1.7rem, 11vw, 2.6rem);
   }
 }
 
