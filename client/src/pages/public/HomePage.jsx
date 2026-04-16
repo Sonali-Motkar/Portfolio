@@ -5,11 +5,6 @@ import api from "../../api/axios";
 
 const HomePage = () => {
   const [profile, setProfile] = useState(null);
-  const links = {
-    linkedin: "https://linkedin.com/in/sonali-motkar-48002a2b8",
-    github: "https://github.com/Sonali-Motkar",
-    email: "sonalimotkar4@gmail.com"
-  };
 
   useEffect(() => {
     api.get("/profile").then((res) => setProfile(res.data)).catch(() => {});
@@ -17,18 +12,30 @@ const HomePage = () => {
 
   return (
     <PublicLayout>
-      <section className="card">
-        <h1>{profile?.fullName || "Your Name"}</h1>
-        <p>{profile?.headline || "Full Stack Developer"}</p>
-        <p>{profile?.about || "Build your dynamic profile from admin panel."}</p>
-        <div className="quick-links">
-          <a href={links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href={links.github} target="_blank" rel="noreferrer">GitHub</a>
-          <a href={`mailto:${links.email}`}>{links.email}</a>
+      <section className="home-hero-card">
+        <div className="home-glow home-glow-left" />
+        <div className="home-glow home-glow-center" />
+        <div className="home-glow home-glow-right" />
+
+        <div className="home-hero-grid">
+          <div className="home-copy">
+            <p className="home-kicker">Hello, I&apos;m</p>
+            <h1>{profile?.fullName || "Sonali Motkar"}</h1>
+            <p className="home-role">MERN Stack Developer</p>
+          </div>
+
+          <div className="home-photo-shell">
+            <img
+              className="home-photo"
+              src="/certificates/sonal.png"
+              alt={`${profile?.fullName || "Sonali Motkar"} profile`}
+            />
+          </div>
         </div>
-        <div className="row">
+
+        <div className="home-cta-row">
           <Link to="/projects" className="btn">View Projects</Link>
-          <Link to="/contact" className="btn secondary">Contact Me</Link>
+          <Link to="/contact" className="btn secondary">Contact</Link>
         </div>
       </section>
     </PublicLayout>
