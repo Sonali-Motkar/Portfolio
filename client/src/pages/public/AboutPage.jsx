@@ -89,12 +89,12 @@ const AboutPage = () => {
 
           <article className="about-panel animate-rise delay-4">
             <h3>Profiles</h3>
-            <div className="quick-links">
-              <a href={links.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href={links.github} target="_blank" rel="noreferrer">GitHub</a>
-              <a href={links.hackerrank} target="_blank" rel="noreferrer">HackerRank</a>
-              <a href={links.leetcode} target="_blank" rel="noreferrer">LeetCode</a>
-              <a href={resumeUrl} target="_blank" rel="noreferrer">Resume</a>
+            <div className="profile-icon-links">
+              <a href={links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" title="LinkedIn">in</a>
+              <a href={links.github} target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub">GH</a>
+              <a href={links.hackerrank} target="_blank" rel="noreferrer" aria-label="HackerRank" title="HackerRank">HR</a>
+              <a href={links.leetcode} target="_blank" rel="noreferrer" aria-label="LeetCode" title="LeetCode">LC</a>
+              <a href={resumeUrl} target="_blank" rel="noreferrer" aria-label="Resume" title="Resume">CV</a>
             </div>
             <p className="about-contact-note">
               For collaboration and opportunities, please connect through the Contact page.
