@@ -44,8 +44,8 @@ const ProjectsPage = () => {
 
   return (
     <PublicLayout>
-      <section className="card projects-section">
-        <h2>Projects</h2>
+      <section className="card projects-section page-animate-in">
+        <h2 className="animate-rise delay-1">Projects</h2>
         {loading ? <div className="skills-state">Loading projects...</div> : null}
         {error ? <div className="skills-state error">{error}</div> : null}
 
@@ -53,11 +53,12 @@ const ProjectsPage = () => {
           <div className="skills-state">No projects added yet.</div>
         ) : null}
 
-        {projects.map((project) => (
+        {projects.map((project, index) => (
           <article
             key={project._id}
             className={`item project-card animate-rise ${getProjectThemeClass(project)}`.trim()}
             style={{
+              "--reveal-index": index,
               "--project-bg-image": project.imageUrl ? `url("${encodeURI(project.imageUrl)}")` : "none"
             }}
           >

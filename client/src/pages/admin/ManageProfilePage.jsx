@@ -10,6 +10,8 @@ const emptyProfile = {
   socialLinks: {
     github: "",
     linkedin: "",
+    hackerrank: "",
+    leetcode: "",
     twitter: "",
     website: ""
   }
@@ -42,6 +44,8 @@ const ManageProfilePage = () => {
         <input placeholder="Location" value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} />
         <input placeholder="GitHub" value={form.socialLinks.github} onChange={(e) => setForm({ ...form, socialLinks: { ...form.socialLinks, github: e.target.value } })} />
         <input placeholder="LinkedIn" value={form.socialLinks.linkedin} onChange={(e) => setForm({ ...form, socialLinks: { ...form.socialLinks, linkedin: e.target.value } })} />
+        <input placeholder="HackerRank" value={form.socialLinks.hackerrank} onChange={(e) => setForm({ ...form, socialLinks: { ...form.socialLinks, hackerrank: e.target.value } })} />
+        <input placeholder="LeetCode" value={form.socialLinks.leetcode} onChange={(e) => setForm({ ...form, socialLinks: { ...form.socialLinks, leetcode: e.target.value } })} />
         <input placeholder="Twitter" value={form.socialLinks.twitter} onChange={(e) => setForm({ ...form, socialLinks: { ...form.socialLinks, twitter: e.target.value } })} />
         <input placeholder="Website" value={form.socialLinks.website} onChange={(e) => setForm({ ...form, socialLinks: { ...form.socialLinks, website: e.target.value } })} />
         <button className="btn" type="submit">Update Profile</button>

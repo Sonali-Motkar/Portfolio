@@ -1,2 +1,11 @@
 
 .git_broken/
+
+# Ignore temporary logs generated during local development
+*.log
+*/*.log
+**/*.log
+
+# Ignore Render and local runtime log files
+*.err.log
+*.run.log

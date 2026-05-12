@@ -10,6 +10,8 @@ const profileSchema = new mongoose.Schema(
     socialLinks: {
       github: { type: String, default: "" },
       linkedin: { type: String, default: "" },
+      hackerrank: { type: String, default: "" },
+      leetcode: { type: String, default: "" },
       twitter: { type: String, default: "" },
       website: { type: String, default: "" }
     }

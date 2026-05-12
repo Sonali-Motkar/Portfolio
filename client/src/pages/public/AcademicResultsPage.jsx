@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import PublicLayout from "../../layouts/PublicLayout";
 
 const academicRows = [
@@ -29,37 +28,14 @@ const academicRows = [
   {
     level: "Post Graduation (MCA - Semester I)",
     boardOrUniversity: "Dnyan Prasad Global University",
-    year: "December 2025",
+    year: "2025 - 2027 (Pursuing)",
     score: "75.00% | SGPA: 8.18",
     marks: "Semester: I",
-    result: "Pass",
-    isPostGrad: true
+    result: "Pass"
   }
 ];
 
-const postGradSubjects = [
-  "Python Programming",
-  "Data Communication & Computer Network",
-  "Software Engineering (UML)",
-  "Data Science",
-  "Web Development",
-  "Software Testing"
-];
-
 const AcademicResultsPage = () => {
-  const [showMcaSubjects, setShowMcaSubjects] = useState(false);
-
-  useEffect(() => {
-    const onEsc = (event) => {
-      if (event.key === "Escape") {
-        setShowMcaSubjects(false);
-      }
-    };
-
-    window.addEventListener("keydown", onEsc);
-    return () => window.removeEventListener("keydown", onEsc);
-  }, []);
-
   return (
     <PublicLayout>
       <section className="card cert-section page-animate-in">
@@ -75,43 +51,15 @@ const AcademicResultsPage = () => {
               className={`about-panel result-card animate-rise delay-${Math.min(index + 1, 4)}`}
             >
               <h3>{row.level}</h3>
+              
               <p><strong>Board / University:</strong> {row.boardOrUniversity}</p>
               <p><strong>Year of Passing:</strong> {row.year}</p>
               <p><strong>Percentage / CGPA:</strong> {row.score}</p>
               <p><strong>Marks / Credits:</strong> {row.marks}</p>
               <p><strong>Result:</strong> {row.result}</p>
-              {row.isPostGrad ? (
-                <button
-                  type="button"
-                  className="laptop-toggle"
-                  onClick={() => setShowMcaSubjects(true)}
-                  aria-expanded={showMcaSubjects}
-                  aria-label="Open MCA Semester I Subjects"
-                >
-                  {"\u{1F4BB}"}
-                </button>
-              ) : null}
             </article>
           ))}
         </div>
-
-        {showMcaSubjects ? (
-          <div className="mca-modal-backdrop" onClick={() => setShowMcaSubjects(false)}>
-            <article className="mca-modal result-card" onClick={(event) => event.stopPropagation()}>
-              <div className="mca-modal-head">
-                <h3>MCA Semester I Subjects</h3>
-                <button type="button" className="mca-modal-close" onClick={() => setShowMcaSubjects(false)}>
-                  X
-                </button>
-              </div>
-              <ul className="about-list">
-                {postGradSubjects.map((subject) => (
-                  <li key={subject}>{subject}</li>
-                ))}
-              </ul>
-            </article>
-          </div>
-        ) : null}
       </section>
     </PublicLayout>
   );

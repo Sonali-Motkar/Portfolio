@@ -26,8 +26,8 @@ const CertificationsPage = () => {
 
   return (
     <PublicLayout>
-      <section className="card cert-section">
-        <div className="cert-section-head">
+      <section className="card cert-section page-animate-in">
+        <div className="cert-section-head animate-rise delay-1">
           <h2>Certifications</h2>
           <p>Verified achievements and training credentials.</p>
         </div>
@@ -37,8 +37,12 @@ const CertificationsPage = () => {
 
         {!loading && !error ? (
           <div className="cert-grid">
-            {certificates.map((cert) => (
-              <article className="cert-card" key={cert._id}>
+            {certificates.map((cert, index) => (
+              <article
+                className="cert-card"
+                key={cert._id}
+                style={{ "--reveal-index": index }}
+              >
                 {cert.imageUrl ? (
                   <a
                     className="cert-image-link"

@@ -52,6 +52,24 @@ const seedCertificates = async () => {
         "Demonstrates Python programming proficiency including syntax, functions, modules, problem solving, and scripting workflows.",
       credentialUrl: "C:/Users/sonali/OneDrive/Desktop/Certifications/python.pdf",
       imageUrl: "/certificates/python-certificate.jpg"
+    },
+    {
+      title: "GenAI Powered Data Analytics Job Simulation",
+      issuer: "Tata and Forage",
+      issueDate: new Date("2026-05-06"),
+      description:
+        "Completed practical job simulation tasks covering exploratory data analysis, risk profiling, AI-based delinquency prediction, and data storytelling.",
+      credentialUrl: "",
+      imageUrl: "/certificates/TATA FORGE_page-0001.jpg"
+    },
+    {
+      title: "Introduction to Artificial Intelligence",
+      issuer: "Infosys Springboard",
+      issueDate: new Date("2026-05-06"),
+      description:
+        "Successfully completed the Infosys Springboard course introducing artificial intelligence concepts and foundations.",
+      credentialUrl: "https://verify.onwingspan.com",
+      imageUrl: "/certificates/infosys spring Ai intro certification_page-0001.jpg"
     }
   ];
 
