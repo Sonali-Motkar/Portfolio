@@ -1,9 +1,11 @@
 import dotenv from "dotenv";
 import app from "./app.js";
+import configureDns from "./config/dns.js";
 import connectDB from "./config/db.js";
 import { seedAdmin } from "./controllers/authController.js";
 
 dotenv.config();
+configureDns();
 
 const port = process.env.PORT || 5000;
 

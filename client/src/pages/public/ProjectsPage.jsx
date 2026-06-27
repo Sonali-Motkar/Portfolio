@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PublicLayout from "../../layouts/PublicLayout";
 import api from "../../api/axios";
+import { fallbackProjects, mergeByTitle } from "../../data/portfolioData";
 
 const ProjectsPage = () => {
   const [projects, setProjects] = useState([]);
@@ -37,8 +38,11 @@ const ProjectsPage = () => {
   useEffect(() => {
     api
       .get("/projects")
-      .then((res) => setProjects(res.data))
-      .catch(() => setError("Unable to load projects right now."))
+      .then((res) => setProjects(mergeByTitle(res.data, fallbackProjects)))
+      .catch(() => {
+        setProjects(fallbackProjects);
+        setError("");
+      })
       .finally(() => setLoading(false));
   }, []);
 

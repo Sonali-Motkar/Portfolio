@@ -1,8 +1,10 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import configureDns from "../config/dns.js";
 import Profile from "../models/Profile.js";
 
 dotenv.config();
+configureDns();
 
 const seedProfile = async () => {
   await mongoose.connect(process.env.MONGO_URI);

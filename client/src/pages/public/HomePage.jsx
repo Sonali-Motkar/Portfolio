@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import PublicLayout from "../../layouts/PublicLayout";
 import api from "../../api/axios";
+import { fallbackCertificates, fallbackProjects, mergeByTitle } from "../../data/portfolioData";
 
 const fallbackSkills = [
   { _id: "react", name: "React", category: "Frontend" },
@@ -151,8 +152,8 @@ const getOriginalCertificateDate = (cert) => {
 const HomePage = () => {
   const [profile, setProfile] = useState(null);
   const [skills, setSkills] = useState(fallbackSkills);
-  const [projects, setProjects] = useState([]);
-  const [certificates, setCertificates] = useState([]);
+  const [projects, setProjects] = useState(fallbackProjects);
+  const [certificates, setCertificates] = useState(fallbackCertificates);
   const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
   const [status, setStatus] = useState("");
   const [sending, setSending] = useState(false);
@@ -163,10 +164,10 @@ const HomePage = () => {
       if (Array.isArray(res.data) && res.data.length) setSkills(res.data);
     }).catch(() => {});
     api.get("/projects").then((res) => {
-      if (Array.isArray(res.data)) setProjects(res.data);
+      if (Array.isArray(res.data)) setProjects(mergeByTitle(res.data, fallbackProjects));
     }).catch(() => {});
     api.get("/certificates").then((res) => {
-      if (Array.isArray(res.data)) setCertificates(res.data);
+      if (Array.isArray(res.data)) setCertificates(mergeByTitle(res.data, fallbackCertificates));
     }).catch(() => {});
   }, []);
 
@@ -177,21 +178,7 @@ const HomePage = () => {
   }, []);
 
   const featuredProjects = useMemo(() => {
-    const list = projects.length ? projects : [
-      {
-        _id: "portfolio",
-        title: "Portfolio CMS",
-        description: "Admin-managed portfolio with secure auth, REST APIs, message pipeline, and responsive UI.",
-        techStack: ["React", "Node.js", "MongoDB"],
-        featured: true
-      },
-      {
-        _id: "weather",
-        title: "Weather App",
-        description: "City search, forecast cards, and saved weather views using a public weather API.",
-        techStack: ["JavaScript", "API", "CSS"]
-      }
-    ];
+    const list = projects.length ? projects : fallbackProjects;
     return [...list].sort((a, b) => Number(b.featured) - Number(a.featured)).slice(0, 5);
   }, [projects]);
 

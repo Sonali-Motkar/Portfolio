@@ -1,8 +1,10 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import configureDns from "../config/dns.js";
 import Certificate from "../models/Certificate.js";
 
 dotenv.config();
+configureDns();
 
 const seedCertificates = async () => {
   await mongoose.connect(process.env.MONGO_URI);

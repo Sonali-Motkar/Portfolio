@@ -1,8 +1,10 @@
 import dotenv from "dotenv";
 import mongoose from "mongoose";
+import configureDns from "../config/dns.js";
 import Skill from "../models/Skill.js";
 
 dotenv.config();
+configureDns();
 
 const seedSkills = async () => {
   await mongoose.connect(process.env.MONGO_URI);
@@ -63,4 +65,3 @@ seedSkills().catch(async (error) => {
   } catch {}
   process.exit(1);
 });
-

@@ -10,7 +10,7 @@
     "seed:certs": "node src/scripts/seedCertificates.js",
     "seed:skills": "node src/scripts/seedSkills.js",
     "seed:profile": "node src/scripts/seedProfile.js",
-    "seed:projects": "node src/scripts/addCodtechProject.js && node src/scripts/addGoalCorporationProject.js",
+    "seed:projects": "node src/scripts/seedProjects.js",
     "seed:all": "npm run seed:profile && npm run seed:skills && npm run seed:certs && npm run seed:projects"
   },
   "keywords": [],

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import PublicLayout from "../../layouts/PublicLayout";
 import api from "../../api/axios";
+import { fallbackCertificates, mergeByTitle } from "../../data/portfolioData";
 
 const CertificationsPage = () => {
   const [certificates, setCertificates] = useState([]);
@@ -11,13 +12,17 @@ const CertificationsPage = () => {
     api
       .get("/certificates")
       .then((res) => {
-        const sorted = [...res.data].sort(
+        const sorted = mergeByTitle(res.data, fallbackCertificates).sort(
           (a, b) => new Date(b.issueDate).getTime() - new Date(a.issueDate).getTime()
         );
         setCertificates(sorted);
       })
       .catch(() => {
-        setError("Unable to load certifications right now.");
+        const sorted = [...fallbackCertificates].sort(
+          (a, b) => new Date(b.issueDate).getTime() - new Date(a.issueDate).getTime()
+        );
+        setCertificates(sorted);
+        setError("");
       })
       .finally(() => {
         setLoading(false);
